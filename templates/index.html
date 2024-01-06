@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Our Wines</title>
+         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<link href="{% static 'style/style.css' %}" rel="stylesheet" type="text/css" media="all ">
+	</head>
+	<body>
+
+    <header class="red-header">
+        <div class="container">
+            <h1>Винокур</h1>
+            <nav>
+                <ul>
+                    <li><a href="tovary/">Товары</a></li>
+                    <li><a href="корзина/">Корзина</a></li>
+                    <li><a href="aboutus/">О нас</a></li>
+                    <li><a href=  "все_заказы/">Заказы</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    {% for i in index %}
+    <section class="main-section">
+        <div class="container holder">
+            <h2>{{i.title}}</h2>
+            <p>{{i.description}}</p>
+            <a href="tovary/" class="btn">Ознакомиться с товаром</a>
+        </div>
+    </section>
+    {% endfor %}
+
+    <div class="container">
+        <h2 style="font-size: 35px; ">Наши поставщики</h2>
+        <div class="card_holder">
+         {% for i in поставщики %}
+         <div class="wine-card">
+        <h2>{{i.company_name}}</h2>
+        <img src="{{i.image.url}}" alt="">
+        <ul>
+            <li><strong>Страна:</strong> {{i.country}}</li>
+            <li><strong>Регион:</strong>{{i.region}}</li>
+        </ul>
+
+         </div>
+             {% endfor %}
+       </div>
+    </div>
+
+
+</body>
+</html>

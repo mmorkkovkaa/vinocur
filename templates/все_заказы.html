@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Our Wines</title>
+         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<link href="{% static 'style/style.css' %}" rel="stylesheet" type="text/css" media="all ">
+	</head>
+	<body>
+
+    <header class="red-header">
+        <div class="container">
+            <h1>Винокур</h1>
+            <nav>
+                <ul>
+                    <li><a href="/">Главная</a></li>
+                    <li><a href="../tovary/">Товары</a></li>
+                    <li><a href="../корзина/">Корзина</a></li>
+                    <li><a href="../aboutus/">О нас</a></li>
+                    <li><a href="../все_заказы/">Заказы</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container" >
+        <div class="order" style=" width: 450px; margin-left: 100px; margin-top: 30px;" >
+            <h1  style="background-color: #fff;">Все заказы, сделанные в нашем магазине : </h1>
+            {% for заказ in все_заказы %}
+            <p  style="color: white" > Заказчик: {{ заказ.user.username }}</p>
+            <p  style="background-color: #5c0a0a;"> дата заказа: {{ заказ.дата_заказа }}</p>
+
+            <h3  style="background-color: #fff;" >Товары в заказе:</h3>
+            <ul  style="background-color:#5c0a0a;">
+              {% for товар_в_заказе in заказ.товары_в_заказе.all %}
+                <li>{{ товар_в_заказе.товар.title }} - Количество: {{ товар_в_заказе.количество }}</li>
+              {% endfor %}
+            </ul>
+          {% endfor %}
+        </div>
+
+
+    </div>
+
+
+</body>
+</html>

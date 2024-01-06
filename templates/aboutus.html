@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Our Wines</title>
+         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<link href="{% static 'style/style.css' %}" rel="stylesheet" type="text/css" media="all ">
+	</head>
+	<body>
+
+    <header class="red-header">
+        <div class="container">
+            <h1>Винокур</h1>
+            <nav>
+                <ul>
+                     <li><a href="/">Главная</a></li>
+                    <li><a href="../tovary/">Товары</a></li>
+                    <li><a href="../корзина/">Корзина</a></li>
+                    <li><a href="aboutus/">О нас</a></li>
+                    <li><a href="../все_заказы/">Заказы</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="text_holder">
+         <h1> ЛУЧШИЙ ВИННЫЙ МАГАЗИН В ВАШЕМ ГРОРДЕ - ВИНОКУР!</h1>
+        <p>Наша команда экспертов в области вин и сомелье готова помочь вам подобрать вино под любой повод: будь то ужин с близкими, торжественное мероприятие или просто уютный вечер вдвоем. Мы гордимся нашим разнообразием - от классических красных и белых вин до редких коллекционных экземпляров.
+
+В "Винокуре" вы найдете не только великолепные напитки, но и увлекательные мероприятия, дегустации и мастер-классы от приглашенных сомелье. Мы создаем не просто магазин вин, а место, где вино становится искусством, а каждый посетитель - частью этого удивительного мира.
+
+Погрузитесь в атмосферу настоящего винного рая в "Винокуре" и дайте вашим вкусовым рецепторам настоящий праздник!</p>
+    </div>
+    </div>
+
+
+    <div class="container">
+        <section class="team">
+            <h2 style="background-color: white">Наша Команда</h2>
+
+<!--                {% for i in image %}-->
+<!--                    <div class="image-card">-->
+<!--                         <img src="{{i.image.url}}" alt="">-->
+<!--                    </div>-->
+<!--                {% endfor %}-->
+
+                {% for сотрудник in сотрудники %}
+        <div class="employee-card">
+            {% with image=сотрудник.imagedev %}
+                {% if image %}
+                    <div class="image-card">
+                        <img src="{{ image.image.url }}" alt="">
+                    </div>
+                {% endif %}
+            {% endwith %}
+            <h3>{{ сотрудник.имя }} {{ сотрудник.фамилия }}</h3>
+            <ul>
+                <li><strong>Стаж работы:</strong> {{ сотрудник.стаж_работы }}</li>
+                <li><strong>Должность:</strong>{{ сотрудник.должность }}</li>
+                <li><strong>Телефон:</strong>{{ сотрудник.телефон }}</li>
+                <li><strong>Почта:</strong> {{ сотрудник.почта }}</li>
+                <li><strong>Место жительства:</strong> {{ сотрудник.место_жительства }}</li>
+                <li><strong>Любимое вино:</strong> {{ сотрудник.любимое_вино }}</li>
+            </ul>
+        </div>
+    {% endfor %}
+
+
+        </section>
+    </div>
+</body>
+</html>

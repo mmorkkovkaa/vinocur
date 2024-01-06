@@ -1,0 +1,161 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-image: url('https://i.pinimg.com/originals/60/ee/f5/60eef56e4e59dd889a6b77fbcdff1284.jpg'); /* Замените 'background_image.jpg' на путь к вашей картинке */
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+
+
+}
+
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #5c0a0a;
+    color: #fff;
+    padding: 10px 0;
+}
+
+header h1 {
+font-size: 55px;
+    margin: 0;
+}
+
+nav ul {
+    list-style: none;
+    text-decoration: none;
+
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+margin-top: 10px;
+    display: inline-block;
+    margin-right: 20px;
+}
+
+nav ul li a{
+    text-decoration: none;
+    color: #fff;
+
+}
+
+
+main-section {
+    text-align: center;
+    padding: 50px 0;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    text-decoration: none;
+    background-color: #5c0a0a;
+    color: #fff;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #cc0000;
+}
+
+.card_holder{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+}
+.wine-card {
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #fff;
+    overflow: hidden;
+    margin: 20px;
+}
+
+.wine-card img {
+    width: 300px;
+    height: 300px;
+}
+
+.wine-card h2,
+.wine-card p {
+    padding: 10px;
+    margin: 0;
+}
+
+.wine-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.wine-card li {
+    padding: 5px 10px;
+    border-top: 1px solid #ccc;
+}
+
+.wine-card li:first-child {
+    border-top: none;
+}
+
+
+.team {
+    text-align: center;
+    margin: 20px;
+
+
+}
+
+.employee-card {
+    background-color: #33100f
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 10px;
+    display: inline-block;
+    width: 300px;
+    height: 550px;
+    background-color: #fff;
+}
+.employee-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.employee-card ul li {
+    padding: 5px 10px;
+    border-top: 1px solid #ccc;
+}
+.employee-card img {
+    width: 300px;
+    height: 300px;
+}
+.employee-card h3,
+.employee-card p {
+    padding: 10px;
+    margin: 0;
+}
+
+.order h2{
+    font-size: 40px;
+}
+
+.order p{
+ font-size: 20px;
+}

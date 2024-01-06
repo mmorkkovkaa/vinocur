@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Our Wines</title>
+         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<link href="{% static 'style/style.css' %}" rel="stylesheet" type="text/css" media="all ">
+	</head>
+	<body>
+
+    <header class="red-header">
+        <div class="container">
+            <h1>Винокур</h1>
+            <nav>
+                <ul>
+                    <li><a href="/">Главная</a></li>
+                    <li><a href="../tovary/">Товары</a></li>
+                    <li><a href="корзина/">Корзина</a></li>
+                    <li><a href="../aboutus/">О нас</a></li>
+                    <li><a href="../все_заказы/">Заказы</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+        <div class="container">
+        <h1>Заказ собран</h1>
+    {% for i in корзина %}
+        <div class="order" style="width: 300px;  background-color: #fff;">
+          <p>Товар: {{i.товар}} </p>
+          <p>Количество: {{i.quantity}} </p>
+        </div>
+              {% endfor %}
+    </div>
+
+
+    <div class="container">
+        <div class="order" >
+            <h3 style="font-size: 20px;" >Общая стоимость товаров: {{ общая_стоимость }}</h3>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="order">
+            <form method="post" action="{% url 'оплатить_заказ' %}">
+                {% csrf_token %}
+                <input style="width: 300px; height: 30px;" type="submit" value="Оплатить заказ">
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>

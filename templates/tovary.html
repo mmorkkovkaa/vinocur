@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Our Wines</title>
+         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<link href="{% static 'style/style.css' %}" rel="stylesheet" type="text/css" media="all ">
+	</head>
+	<body>
+
+    <header class="red-header">
+        <div class="container">
+            <h1>Винокур</h1>
+            <nav>
+                <ul>
+                    <li><a href="/">Главная</a></li>
+                    <li><a href="tovary/">Товары</a></li>
+                    <li><a href="../корзина/">Корзина</a></li>
+                    <li><a href="../aboutus/">О нас</a></li>
+                    <li><a href="../все_заказы/">Заказы</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="text_holder">
+         <h1> ЛУЧШИЙ ВИНА В НАШЕМ МАГАЗИНЕ! </h1>
+    </div>
+    </div>
+    <div class="container">
+        <div class="card_holder">
+         {% for i in товары %}
+        <div class="wine-card">
+        <h2>{{i.title}}</h2>
+        <p>{{i.description}}</p>
+        <img src="{{i.image.url}}" alt="">
+        <ul>
+            <li><strong>Страна:</strong> {{i.country}}</li>
+            <li><strong>Регион:</strong>{{i.region}}</li>
+            <li><strong>Поставщик:</strong>{{i.supplier_company}}</li>
+            <li><strong>Количество на складе:</strong> {{i.stock_quantity}}</li>
+            <li><strong>Цена:</strong> {{i.price}}</li>
+            <li><strong>Год выдержки:</strong> {{i.harvest_year}}</li>
+            <li><strong>Цвет:</strong> {{i.color}}</li>
+            <li><strong>Cорт:</strong>{{i.variety}}</li>
+            <li><strong>Вкус:</strong>{{i.taste}}</li>
+            <li><strong>Классификация:</strong>{{i.classification}}</li>
+        </ul>
+            <form method="post" action="{% url 'добавить_в_корзину' i.id %}">
+        {% csrf_token %}
+        <button type="submit" style="margin-left: 70px; margin-top: 20px; ">Добавить в корзину</button>
+    </form>
+
+            <h2>Отзывы:</h2>
+                {% for отзыв in i.отзывы.all %}
+                    <p>{{ отзыв.имя }} {{ отзыв.фамилия }}: {{ отзыв.текст }} - ({{ отзыв.дата_отзыва }})</p>
+                {% endfor %}
+    </div>
+        {% endfor %}
+    </div>
+    </div>
+
+
+
+</body>
+</html>
