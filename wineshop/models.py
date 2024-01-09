@@ -96,3 +96,14 @@ class Поставщики(models.Model):
 
     def __str__(self):
         return self.company_name
+
+class Клиенты(models.Model):
+    название_компании = models.CharField(max_length=255, blank=True, null=True)
+    имя = models.CharField(max_length=100)
+    фамилия = models.CharField(max_length=100)
+    контакты = models.CharField(max_length=255, blank=True, null=True)
+    картинка = models.ImageField(upload_to='client_images/', blank=True, null=True)
+    отзыв = models.TextField(blank=True, null=True)
+
+    def __str__(self):
+        return f"{self.имя} {self.фамилия}"

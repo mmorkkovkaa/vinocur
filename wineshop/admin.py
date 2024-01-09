@@ -13,5 +13,6 @@ admin.site.register(models.ТоварВЗаказе)
 admin.site.register(models.ОформленныйЗаказ)
 admin.site.register(models.Отзыв)
 admin.site.register(models.Поставщики)
+admin.site.register(models.Клиенты)
 
 

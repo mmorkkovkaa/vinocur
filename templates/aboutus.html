@@ -68,8 +68,25 @@
         </div>
     {% endfor %}
 
-
         </section>
+    </div>
+
+    <div class="container">
+        <h2 style="background-color: white; font-size: 40px;">Наши довольные Клиенты-рестораны</h2>
+        <div class="card_holder">
+         {% for i in клиенты %}
+            <div class="wine-card">
+            <h2>{{i.название_компании}}</h2>
+            <img src="{{i.картинка.url}}" alt="">
+            <ul>
+                <li><strong>ФИ:</strong>{{i.имя}} {{i.фамилия}}</li>
+                <li><strong>Контакты:</strong> {{i.контакты}}</li>
+                <li><strong>Отзыв:</strong>{{i.отзыв}}</li>
+
+            </ul>
+            </div>
+            {% endfor %}
+        </div>
     </div>
 </body>
 </html>

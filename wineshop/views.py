@@ -20,15 +20,13 @@ def товары(request):
     отзывы = Отзыв.objects.all()
     return render(request, 'tovary.html', {'товары': товары, 'отзывы': отзывы})
 
-def аксессуары(request):
-    аксессуары = models.Аксессуары.objects.all()
-    return render(request, 'аксессуары.html', {'аксессуары': аксессуары})
 
 def сотрудники(request):
     сотрудники = models.Сотрудники.objects.all()
     image = models.ImageDev.objects.all()
+    клиенты = models.Клиенты.objects.all()
 
-    context = {'сотрудники': сотрудники, 'image': image}
+    context = {'сотрудники': сотрудники, 'image': image, 'клиенты': клиенты}
 
     return render(request, 'aboutus.html',context )
 
